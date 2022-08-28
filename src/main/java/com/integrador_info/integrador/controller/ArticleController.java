@@ -51,6 +51,17 @@ public class ArticleController {
         Article article = modelMapper.map(articleDTO, Article.class);
         if (articleDTO.getId()!= null){
             Article oldArticle = articleService.getArticleById(articleDTO.getId());
+            if(article.getTitle()==null){
+                article.setTitle(oldArticle.getTitle());
+            }
+            if(article.getDescription() == null){
+                article.setDescription(oldArticle.getDescription());
+            }
+            if (article.getContent()==null){
+                article.setContent(oldArticle.getContent());
+            }
+            article.setUrl(oldArticle.getUrl());
+            article.setUrlToImage(oldArticle.getUrlToImage());
             article.setId(oldArticle.getId());
             article.setPublishedAt(oldArticle.getPublishedAt());
             article.setAuthor(oldArticle.getAuthor());

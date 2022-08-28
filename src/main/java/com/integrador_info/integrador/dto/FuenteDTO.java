@@ -1,7 +1,6 @@
 package com.integrador_info.integrador.dto;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class FuenteDTO {
     private Long id;

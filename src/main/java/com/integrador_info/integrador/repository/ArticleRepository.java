@@ -15,7 +15,7 @@ import com.integrador_info.integrador.domain.Article;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long>, PagingAndSortingRepository<Article,Long> {
     // SELECT * FROM article WHERE descripcion LIKE "%descripcion%"
-    Page<Article> findByDescriptionContainingOrByTitleContaining(String description,String title, Pageable pageReq);
+    Page<Article> findByDescriptionContainingOrTitleContaining(String description,String title, Pageable pageReq);
 
-    Page<Article> findByCreatedAtIsAfter(LocalDate date, Pageable pageReq);
+    Page<Article> findBypublishedAtIsAfter(LocalDate date, Pageable pageReq);
 }

@@ -12,10 +12,19 @@ import org.springframework.stereotype.Service;
 
 import com.integrador_info.integrador.domain.Article;
 import com.integrador_info.integrador.repository.ArticleRepository;
+import com.integrador_info.integrador.repository.AutorRepository;
+import com.integrador_info.integrador.repository.FuenteRepository;
 
+@Service
 public class ArticleService implements IArticleService {
     @Autowired
     private ArticleRepository articleRepository;
+
+    @Autowired
+    private AutorRepository autorRepository;
+
+    @Autowired
+    private FuenteRepository fuenteRepository;
 
     @Override
     public List<Article> getArticleList(String title, String description, LocalDate date, int page, int size,
@@ -23,10 +32,10 @@ public class ArticleService implements IArticleService {
         Pageable pageReq = PageRequest.of(page, size, Sort.Direction.fromString(sortDir), sort);
         Page<Article> articles;
         if(title != null || description !=null){
-            articles = articleRepository.findByDescriptionContainingOrByTitleContaining(title,description, pageReq);
+            articles = articleRepository.findByDescriptionContainingOrTitleContaining(title,description, pageReq);
         }else {
             if(date!=null){
-                articles = articleRepository.findByCreatedAtIsAfter(date, pageReq);
+                articles = articleRepository.findBypublishedAtIsAfter(date, pageReq);
             }else{
                 articles = articleRepository.findAll(pageReq);
             } 
@@ -40,9 +49,10 @@ public class ArticleService implements IArticleService {
     }
 
     @Override
-    public Article createArticle(Article autor) {
-        // TODO Auto-generated method stub
-        return articleRepository.save(autor);
+    public Article createArticle(Article article) {
+        article.setAuthor(autorRepository.getReferenceById(article.getAuthor().getId()));
+        article.setSource(fuenteRepository.getReferenceById(article.getSource().getId()));
+        return articleRepository.save(article);
     }
 
     @Override

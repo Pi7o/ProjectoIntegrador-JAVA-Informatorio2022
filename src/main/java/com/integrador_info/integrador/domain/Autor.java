@@ -37,10 +37,14 @@ public class Autor {
     private String fullname ;
     private LocalDate createdAt;
 
-    @OneToMany(mappedBy = "author",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "author",cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Article> articulos;
 
     public Autor() {
+    }
+
+    public Autor(Long id) {
+        this.id = id;
     }
 
 

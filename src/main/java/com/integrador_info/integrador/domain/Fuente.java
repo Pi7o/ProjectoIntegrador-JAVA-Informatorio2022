@@ -30,10 +30,14 @@ public class Fuente {
     private String code;
     private LocalDate createdAt;
 
-    @OneToMany(mappedBy = "source",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "source",cascade = CascadeType.MERGE)
     private List<Article> articulos;
 
     public Fuente() {
+    }
+
+    public Fuente(Long id) {
+        this.id = id;
     }
 
     public Fuente(Long id, String name) {
