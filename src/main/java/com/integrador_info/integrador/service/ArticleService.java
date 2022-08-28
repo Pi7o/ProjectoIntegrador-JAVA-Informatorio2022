@@ -52,6 +52,7 @@ public class ArticleService implements IArticleService {
     public Article createArticle(Article article) {
         article.setAuthor(autorRepository.getReferenceById(article.getAuthor().getId()));
         article.setSource(fuenteRepository.getReferenceById(article.getSource().getId()));
+        article.setPublishedAt(LocalDate.now());
         return articleRepository.save(article);
     }
 

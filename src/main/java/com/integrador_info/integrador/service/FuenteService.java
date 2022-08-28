@@ -41,6 +41,7 @@ public class FuenteService implements IFuenteService{
 
     @Override
     public Fuente createFuente(Fuente fuente){
+        fuente.setCreatedAt(LocalDate.now());
         return fuenteRepository.save(fuente);
     }
 

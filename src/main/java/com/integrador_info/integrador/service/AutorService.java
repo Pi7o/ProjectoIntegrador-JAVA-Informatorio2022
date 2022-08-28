@@ -41,6 +41,7 @@ public class AutorService implements IAutorService{
 
     @Override
     public Autor createAutor(Autor autor){
+        autor.setCreatedAt(LocalDate.now());
         return autorRepository.save(autor);
     }
 

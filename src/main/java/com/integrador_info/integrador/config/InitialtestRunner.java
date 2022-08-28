@@ -38,7 +38,9 @@ public class InitialtestRunner implements CommandLineRunner {
 
     private Random wearandom = new Random();
 
-    private String generarNombre(){
+    /*
+     * lo usaba para generar los nombres y apellidos 
+     private String generarNombre(){
         String[] nombres = {"Carlos", "Pablo", "Marta", "Maria", "Freddie", "Jiro", "Bodhi", "Dallas", "Hiki", "Jack"};
         int numeromagico = wearandom.nextInt(nombres.length);
         String salida = nombres[numeromagico]; 
@@ -50,6 +52,7 @@ public class InitialtestRunner implements CommandLineRunner {
         String salida = apellidos[numeromagico]; 
         return salida;
     }
+     */
 
     @Override
     public void run (String... args) throws Exception{
@@ -95,7 +98,7 @@ public class InitialtestRunner implements CommandLineRunner {
         */
         
         
-        /* para comprobar paginacion cree 100 elementos aleatorios
+        /* para comprobar paginacion cree 100 elementos aleatorios en la tabla autores
         List<Autor> autores = IntStream.rangeClosed(1, 100)
             .mapToObj(i -> new Autor(generarNombre(), generarApellido(), LocalDate.now()) )
             .collect(Collectors.toList());
