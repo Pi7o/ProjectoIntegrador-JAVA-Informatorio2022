@@ -61,12 +61,14 @@ public class AutorController {
         if (autorDTO.getId()!= null){
             Autor oldAutor = autorService.getAutorById(autorDTO.getId());
             autor.setId(oldAutor.getId());
+            autor.setCreatedAt(oldAutor.getCreatedAt());
+            autor.setArticulos(oldAutor.getArticulos());
         }
         return autor;
     }
 
     //obtener autores paginado
-    @GetMapping // **/autor
+    @GetMapping // **/autor  con iso "AAAA-MM-DD"
     public List<AutorDTO> buscarAutoresPaginado(
         @RequestParam (value="firstname", required = false) String firstname,
         @RequestParam (value="iso", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
@@ -108,7 +110,7 @@ public class AutorController {
     @ResponseStatus(HttpStatus.OK)
     public void modificarAutor(@PathVariable("id") Long id , @RequestBody AutorDTO autorDTO) throws ParseException{
         if(!Objects.equals(id, autorDTO.getId())){
-            throw new IllegalArgumentException("IDS no coinciden!!");
+            throw new IllegalArgumentException("IDS no coinciden!! "+id.toString());
         }
         Autor autor = convertToEntity(autorDTO);
         autorService.updateAutor(autor);
