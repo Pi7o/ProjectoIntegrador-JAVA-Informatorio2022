@@ -1,0 +1,537 @@
+{
+	"info": {
+		"_postman_id": "e50164b5-f680-4fd7-8e77-63b32cc6597a",
+		"name": "Integrador",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21832434"
+	},
+	"item": [
+		{
+			"name": "Autor",
+			"item": [
+				{
+					"name": "Crear Autor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\":\"Adrian\",\n    \"lastname\" : \"Sheppard\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/autor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos paginado",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8080/autor?page=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por fullname",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/autor?fullname=mari",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor"
+							],
+							"query": [
+								{
+									"key": "fullname",
+									"value": "mari"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por fecha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/autor?iso=2022-08-26",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor"
+							],
+							"query": [
+								{
+									"key": "iso",
+									"value": "2022-08-26"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/autor/103",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"103"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar por ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":103,\n    \"firstname\":\"Adrian\",\n    \"lastname\" : \"Sheepard\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/autor/103",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"autor",
+								"103"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fuente",
+			"item": [
+				{
+					"name": "Crear Fuente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"wea de fuente\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/fuente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fuente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos Paginado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/fuente?page=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fuente"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos por fullname",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/fuente?name=wea de fuente",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fuente"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "wea de fuente"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos por fecha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/fuente?iso=2022-08-26",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fuente"
+							],
+							"query": [
+								{
+									"key": "iso",
+									"value": "2022-08-26"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/fuente/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fuente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar por ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":2,\n    \"name\":\"laksjdlkas\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/fuente/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"fuente",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Articulo",
+			"item": [
+				{
+					"name": "Obtener Todos Paginado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/article?page=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"article"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos por string de busqueda",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/article?busqueda=segundo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"article"
+							],
+							"query": [
+								{
+									"key": "busqueda",
+									"value": "segundo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos por fecha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/article?date=2022-02-02",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"article"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2022-02-02"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/article/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"article",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Articulo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"un titulo rre cualquiera\" ,\n    \"description\":\"una descripcion rre cualquiera\",\n    \"url\":\"URL rre cualquiera\",\n    \"urlToImage\": \"URL a imagen rre cualquiera\",\n    \"content\":\"Contenido rre cualquiera\",\n    \"author\" : {\n        \"id\": 1,\n        \"firstname\": \"Juan\",\n        \"lastname\": \"Perez\"\n    } ,\n    \"source\": {\n        \"id\": 1,\n        \"name\": \"I made it up\"\n    }\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/article",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/article/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"article",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar por ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1,\n    \"title\":\"aca modifique el titulo\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/article/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"article",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

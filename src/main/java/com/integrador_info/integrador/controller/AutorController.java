@@ -2,11 +2,8 @@ package com.integrador_info.integrador.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -23,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.integrador_info.integrador.domain.Autor;
 import com.integrador_info.integrador.dto.AutorDTO;
 import com.integrador_info.integrador.repository.AutorRepository;
-import com.integrador_info.integrador.service.AutorService;
 import com.integrador_info.integrador.service.IAutorService;
 
 import java.time.LocalDate;
@@ -66,14 +61,14 @@ public class AutorController {
     //obtener autores paginado
     @GetMapping // **/autor  con iso "AAAA-MM-DD"
     public List<AutorDTO> buscarAutoresPaginado(
-        @RequestParam (value="firstname", required = false) String firstname,
+        @RequestParam (value="fullname", required = false) String fullname,
         @RequestParam (value="iso", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
         @RequestParam (value="page", required = false, defaultValue = "0") int page,
         @RequestParam (value="size", required = false, defaultValue = "10") int size,
         @RequestParam (value="sortDir", required = false, defaultValue = "asc") String sortDir,
         @RequestParam (value="sort", required = false, defaultValue = "id") String sort) {
 
-        List<Autor> autores = autorService.getAutorList(firstname,date,page,size,sortDir,sort);
+        List<Autor> autores = autorService.getAutorList(fullname,date,page,size,sortDir,sort);
         System.out.println("entro controller para buscar autores");
         System.out.println(autores.get(0).getFullname());
         return autores.stream()

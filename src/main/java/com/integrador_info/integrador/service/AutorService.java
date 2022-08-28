@@ -19,11 +19,11 @@ public class AutorService implements IAutorService{
     private AutorRepository autorRepository;
 
     @Override
-    public List<Autor> getAutorList(String firstname,LocalDate date,int page, int size, String sortDir, String sort){
+    public List<Autor> getAutorList(String fullname,LocalDate date,int page, int size, String sortDir, String sort){
         Pageable pageReq = PageRequest.of(page, size, Sort.Direction.fromString(sortDir), sort);
         Page<Autor> autors;
-        if(firstname != null){
-            autors = autorRepository.findByFirstname(firstname, pageReq);
+        if(fullname != null){
+            autors = autorRepository.findByFullnameContains(fullname, pageReq);
         }else {
             if(date!=null){
                 autors = autorRepository.findByCreatedAtIsAfter(date, pageReq);
