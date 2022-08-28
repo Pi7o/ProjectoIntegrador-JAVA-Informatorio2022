@@ -1,7 +1,6 @@
 package com.integrador_info.integrador.dto;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class AutorDTO {
     private Long id;
@@ -9,7 +8,6 @@ public class AutorDTO {
     private String lastname ;
     private String fullname ;
     private LocalDate createdAt;
-    private List<ArticleDTO> articulos;
 
 
     public Long getId() {
@@ -50,14 +48,6 @@ public class AutorDTO {
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public List<ArticleDTO> getArticulos() {
-        return this.articulos;
-    }
-
-    public void setArticulos(List<ArticleDTO> articulos) {
-        this.articulos = articulos;
     }
 
 }

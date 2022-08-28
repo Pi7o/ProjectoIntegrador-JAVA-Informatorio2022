@@ -51,6 +51,13 @@ public class Autor {
         this.fullname = firstname +" " + lastname;
         this.createdAt = createdAt;
     }
+    
+    public Autor(String firstname, String lastname, LocalDate createdAt) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.fullname = firstname +" " + lastname;
+        this.createdAt = createdAt;
+    }
 
     public Long getId() {
         return this.id;

@@ -2,6 +2,9 @@ package com.integrador_info.integrador.config;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +36,24 @@ public class InitialtestRunner implements CommandLineRunner {
         return new ModelMapper();
     }
 
+    private Random wearandom = new Random();
+
+    private String generarNombre(){
+        String[] nombres = {"Carlos", "Pablo", "Marta", "Maria", "Freddie", "Jiro", "Bodhi", "Dallas", "Hiki", "Jack"};
+        int numeromagico = wearandom.nextInt(nombres.length);
+        String salida = nombres[numeromagico]; 
+        return salida;
+    }
+    private String generarApellido(){
+        String[] apellidos = {"Pedrao", "Kiji", "Mercuru", "Heiden", "Donma","Cassio", "Kishi","Abhdol","Jamil","Sossa"};
+        int numeromagico = wearandom.nextInt(apellidos.length);
+        String salida = apellidos[numeromagico]; 
+        return salida;
+    }
+
     @Override
     public void run (String... args) throws Exception{
-        /* 
+        /* lo usaba para testear relaciones creando un par de elementos en la db
         Autor autor = new Autor();
         autor.setFirstname("Juan");
         autor.setLastname("Perez");
@@ -75,7 +93,14 @@ public class InitialtestRunner implements CommandLineRunner {
 
         autor = autorRepository.save(autor);
         */
-
+        
+        
+        /* para comprobar paginacion cree 100 elementos aleatorios
+        List<Autor> autores = IntStream.rangeClosed(1, 100)
+            .mapToObj(i -> new Autor(generarNombre(), generarApellido(), LocalDate.now()) )
+            .collect(Collectors.toList());
+        autorRepository.saveAll(autores);
+        */
         System.out.println("Probando");
     }
         

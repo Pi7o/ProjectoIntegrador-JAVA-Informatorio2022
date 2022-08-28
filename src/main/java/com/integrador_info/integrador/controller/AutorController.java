@@ -30,6 +30,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Objects;
+import java.sql.Date;
 import java.text.ParseException;
 
 import javax.servlet.http.HttpServletResponse;
@@ -68,14 +69,14 @@ public class AutorController {
     @GetMapping // **/autor
     public List<AutorDTO> buscarAutoresPaginado(
         @RequestParam (value="firstname", required = false) String firstname,
-        //@RequestParam (value="iso", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+        @RequestParam (value="iso", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
         @RequestParam (value="page", required = false, defaultValue = "0") int page,
         @RequestParam (value="size", required = false, defaultValue = "10") int size,
         @RequestParam (value="sortDir", required = false, defaultValue = "asc") String sortDir,
         @RequestParam (value="sort", required = false, defaultValue = "id") String sort) {
 
-        List<Autor> autores = autorService.getAutorList(firstname,page,size,sortDir,sort);
-        System.out.println("entro controller");
+        List<Autor> autores = autorService.getAutorList(firstname,date,page,size,sortDir,sort);
+        System.out.println("entro controller para buscar autores");
         System.out.println(autores.get(0).getFullname());
         return autores.stream()
             .map(this::convertToDTO)

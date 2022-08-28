@@ -1,5 +1,6 @@
 package com.integrador_info.integrador.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,17 @@ public class AutorService implements IAutorService{
     private AutorRepository autorRepository;
 
     @Override
-    public List<Autor> getAutorList(String firstname,int page, int size, String sortDir, String sort){
+    public List<Autor> getAutorList(String firstname,LocalDate date,int page, int size, String sortDir, String sort){
         Pageable pageReq = PageRequest.of(page, size, Sort.Direction.fromString(sortDir), sort);
         Page<Autor> autors;
         if(firstname != null){
             autors = autorRepository.findByFirstname(firstname, pageReq);
         }else {
-            autors = autorRepository.findAll(pageReq);
+            if(date!=null){
+                autors = autorRepository.findByCreatedAtIsAfter(date, pageReq);
+            }else{
+                autors = autorRepository.findAll(pageReq);
+            } 
         }
         return autors.getContent();
     }
