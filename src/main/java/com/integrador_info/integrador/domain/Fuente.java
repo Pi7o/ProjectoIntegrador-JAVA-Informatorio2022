@@ -76,6 +76,9 @@ public class Fuente {
     public void setArticulos(List<Article> articulos) {
         this.articulos = articulos;
     }
+    public List<Article> getArticulos() {
+        return this.articulos;
+    }
 
     @Override
     public boolean equals(Object o) {

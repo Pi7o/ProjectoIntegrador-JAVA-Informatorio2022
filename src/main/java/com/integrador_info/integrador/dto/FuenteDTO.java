@@ -8,7 +8,6 @@ public class FuenteDTO {
     private String name;
     private String code;
     private LocalDate createdAt;
-    private List<ArticleDTO> articulos;
 
     public Long getId() {
         return this.id;
@@ -40,14 +39,6 @@ public class FuenteDTO {
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public List<ArticleDTO> getArticulos() {
-        return this.articulos;
-    }
-
-    public void setArticulos(List<ArticleDTO> articulos) {
-        this.articulos = articulos;
     }
 
 }

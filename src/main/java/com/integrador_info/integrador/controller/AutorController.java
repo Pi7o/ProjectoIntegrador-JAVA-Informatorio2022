@@ -30,11 +30,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Objects;
-import java.sql.Date;
 import java.text.ParseException;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/autor")
